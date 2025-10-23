@@ -1,0 +1,11 @@
+[project]
+name = "homedashsensor"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["loguru"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+
+[tool.ruff]
+select = ["E","F","I"]
