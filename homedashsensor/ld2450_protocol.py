@@ -1,3 +1,22 @@
+"""
+HLK-LD2450 24GHz mmWave Radar Sensor Protocol Implementation
+
+This module provides a Python interface for communicating with the HLK-LD2450 radar sensor.
+The protocol implementation is based on the official Hi-Link documentation and community 
+reverse engineering efforts.
+
+Original protocol reverse engineering and implementation credits:
+- Hi-Link Electronic Co., Ltd. - Official LD2450 documentation
+- Community contributors who documented the serial protocol
+- Various GitHub repositories that helped decode the binary protocol
+
+This implementation extends and adapts the original work for use in proximity detection
+applications with advanced filtering and Python integration.
+
+Author: edizaziz-dev
+License: MIT
+"""
+
 import serial
 
 COMMAND_HEADER = bytes.fromhex('FD FC FB FA')

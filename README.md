@@ -229,8 +229,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **AI Assistant**: GitHub Copilot - Code assistance and optimization
 
 ### Hardware and Documentation
-- **HLK-LD2450 Sensor**: Hi-Link Electronic for the excellent 24GHz mmWave radar sensor
-- **LD2450 Protocol Documentation**: Based on official Hi-Link documentation and community reverse engineering efforts
+- **HLK-LD2450 Sensor**: Hi-Link Electronic Co., Ltd. for the excellent 24GHz mmWave radar sensor and official documentation
+- **LD2450 Protocol Implementation**: Based on official Hi-Link documentation and community reverse engineering efforts
+- **Serial Protocol Credits**: Community contributors who documented the binary communication protocol
 - **Waveshare**: For the DSI LCD display and documentation
 
 ### Libraries and Dependencies
@@ -240,8 +241,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### Community and Inspiration
 - **Raspberry Pi Community**: For extensive documentation and support
-- **mmWave Radar Community**: For sharing knowledge about 24GHz radar sensors
+- **mmWave Radar Community**: For sharing knowledge about 24GHz radar sensors and protocol documentation
+- **LD2450 Protocol Contributors**: Community members who reverse-engineered and documented the serial communication protocol
 - **Home Automation Community**: For inspiration on proximity-based automation
+
+### Protocol and Implementation
+- **Serial Communication Protocol**: Implementation based on community-documented LD2450 binary protocol specifications
+- **Data Parsing Logic**: Adapted from various open source implementations and official documentation
+- **Command Structure**: Following Hi-Link's official command format documentation
 
 ### Special Thanks
 - Thanks to the open source community for providing excellent libraries and documentation
