@@ -2,18 +2,23 @@
 HLK-LD2450 24GHz mmWave Radar Sensor Protocol Implementation
 
 This module provides a Python interface for communicating with the HLK-LD2450 radar sensor.
-The protocol implementation is based on the official Hi-Link documentation and community 
-reverse engineering efforts.
+The protocol implementation is based on and heavily inspired by the excellent work done by
+Ron Martin (csRon) in the HLK-LD2450 repository: https://github.com/csRon/HLK-LD2450
 
-Original protocol reverse engineering and implementation credits:
-- Hi-Link Electronic Co., Ltd. - Official LD2450 documentation
-- Community contributors who documented the serial protocol
-- Various GitHub repositories that helped decode the binary protocol
+Original protocol implementation credits:
+- Ron Martin (csRon) - Primary protocol reverse engineering and Python implementation
+  Repository: https://github.com/csRon/HLK-LD2450 (MIT License)
+- Hi-Link Electronic Co., Ltd. - Official LD2450 documentation and hardware
+- Community contributors who helped document and test the serial protocol
 
-This implementation extends and adapts the original work for use in proximity detection
-applications with advanced filtering and Python integration.
+This implementation extends Ron's original work with:
+- Object-oriented sensor class design
+- Integration for proximity detection applications  
+- Enhanced error handling and documentation
+- Context manager support for cleaner resource management
 
 Author: edizaziz-dev
+Based on: csRon/HLK-LD2450 by Ron Martin
 License: MIT
 """
 
@@ -142,6 +147,10 @@ def multi_target_tracking(ser: serial.Serial) -> bool:
 def read_radar_data(serial_port_line: bytes) -> tuple:
     '''
     Read the basic mode data from the serial port line (see docs 2.3)
+    
+    This function is based on the original implementation by Ron Martin (csRon)
+    from https://github.com/csRon/HLK-LD2450
+    
     Parameters:
     - serial_port_line (bytes): the serial port line
     Returns:

@@ -225,7 +225,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Credits and Acknowledgments
 
 ### Authors
-- **Primary Developer**: [edizaziz-dev](https://github.com/edizaziz-dev) - Initial work and implementation
+- **Primary Developer**: [edizaziz-dev](https://github.com/edizaziz-dev) - Proximity detection application and advanced filtering
+- **Protocol Implementation**: [Ron Martin (csRon)](https://github.com/csRon) - Original LD2450 protocol reverse engineering and Python implementation
 - **AI Assistant**: GitHub Copilot - Code assistance and optimization
 
 ### Hardware and Documentation
@@ -241,14 +242,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### Community and Inspiration
 - **Raspberry Pi Community**: For extensive documentation and support
+- **Ron Martin (csRon)**: For the foundational LD2450 protocol implementation that made this project possible
 - **mmWave Radar Community**: For sharing knowledge about 24GHz radar sensors and protocol documentation
 - **LD2450 Protocol Contributors**: Community members who reverse-engineered and documented the serial communication protocol
 - **Home Automation Community**: For inspiration on proximity-based automation
 
 ### Protocol and Implementation
-- **Serial Communication Protocol**: Implementation based on community-documented LD2450 binary protocol specifications
-- **Data Parsing Logic**: Adapted from various open source implementations and official documentation
-- **Command Structure**: Following Hi-Link's official command format documentation
+- **LD2450 Protocol**: Based on [csRon/HLK-LD2450](https://github.com/csRon/HLK-LD2450) by Ron Martin (MIT License)
+- **Serial Communication**: Core protocol functions adapted from Ron's excellent reverse engineering work
+- **Data Parsing Logic**: Binary protocol implementation following Ron's documented format
+- **Command Structure**: Extended from Ron's implementation with object-oriented design
+- **Hardware Integration**: Building on the solid foundation of Ron's protocol documentation
 
 ### Special Thanks
 - Thanks to the open source community for providing excellent libraries and documentation
@@ -257,6 +261,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Related Projects
 
+- **[csRon/HLK-LD2450](https://github.com/csRon/HLK-LD2450)** - Original Python protocol implementation by Ron Martin (Foundation for this project)
 - [LD2450 Arduino Library](https://github.com/ncmreynolds/ld2450) - Arduino implementation
 - [Home Assistant LD2450 Integration](https://github.com/rain931215/ESPHome-LD2450) - ESPHome component
 - [mmWave Radar Projects](https://github.com/topics/mmwave-radar) - Other radar sensor projects
