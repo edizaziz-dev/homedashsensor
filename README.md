@@ -1,318 +1,632 @@
-# HomeDashSensor 🎯# VL53L5CX ToF Sensor Test
+# HomeDashSensor 🎯# HomeDashSensor 🎯# VL53L5CX ToF Sensor Test
 
 
 
-**Advanced proximity-based display control system for Raspberry Pi with ultra-smooth 60Hz fading**A simple test program for the VL53L5CX 8x8 Time of Flight (ToF) array sensor.
+**Advanced proximity-based display control system for Raspberry Pi with ultra-smooth 60Hz fading**
 
 
 
-A sophisticated multi-sensor system that automatically controls display brightness based on human presence detection, ambient light levels, and environmental conditions. Features professional-grade fade animations optimized for high refresh rate displays.## Hardware Setup
+A sophisticated multi-sensor system that automatically controls display brightness based on human presence detection, ambient light levels, and environmental conditions. Features professional-grade fade animations optimized for high refresh rate displays.**Advanced proximity-based display control system for Raspberry Pi with ultra-smooth 60Hz fading**A simple test program for the VL53L5CX 8x8 Time of Flight (ToF) array sensor.
 
 
 
-## ✨ Features### Connections (Pi 5)
-
-Connect the VL53L5CX sensor to your Raspberry Pi:
-
-### 🎯 **Precision Proximity Detection**
-
-- **VL53L5CX 8x8 ToF Sensor** - 64-zone time-of-flight detection with millimeter precision```
-
-- **Configurable thresholds** - Adjustable detection distance (default: 400mm)VL53L5CX    →    Raspberry Pi
-
-- **Multi-zone filtering** - Requires multiple zones for reliable detectionVCC         →    3.3V (Pin 1) or 5V (Pin 2)
-
-- **Consecutive detection logic** - Prevents false triggers from sensor noiseGND         →    GND (Pin 6)
-
-SDA         →    GPIO 2 / SDA (Pin 3)
-
-### 🎭 **Ultra-Smooth Display Control**SCL         →    GPIO 3 / SCL (Pin 5)
-
-- **600-step fade animations** - Optimized for 60Hz displays (3.3ms per step)```
-
-- **Quintic ease-in-out curves** - Imperceptible transitions with professional smoothness
-
-- **Frame-rate synchronized** - Aligned to display refresh cycles for perfect motion### I2C Configuration
-
-- **Task management** - Prevents overlapping fades with proper cancellationThe sensor uses I2C address `0x29`. Ensure I2C is enabled:
+## ✨ Features
 
 
 
-### 🌞 **Adaptive Brightness**```bash
+### 🎯 **Precision Proximity Detection**A sophisticated multi-sensor system that automatically controls display brightness based on human presence detection, ambient light levels, and environmental conditions. Features professional-grade fade animations optimized for high refresh rate displays.## Hardware Setup
 
-- **LTR-559 Light Sensor** - Automatic brightness adjustment based on ambient lightsudo raspi-config
+- **VL53L5CX 8x8 ToF Sensor** - 64-zone time-of-flight detection with millimeter precision
 
-- **Configurable thresholds** - 10-500 lux range with linear interpolation# Navigate to: Interface Options → I2C → Enable
+- **Configurable thresholds** - Adjustable detection distance (default: 400mm)
 
-- **Real-time adaptation** - Smooth transitions when lighting conditions change```
+- **Multi-zone filtering** - Requires multiple zones for reliable detection
 
-- **Manual override** - Can be disabled for static brightness mode
-
-## Software Setup
-
-### 🌡️ **Environmental Monitoring**
-
-- **BME690 4-in-1 Sensor** - Temperature, pressure, humidity, and air quality### 1. Install Dependencies
-
-- **Gas resistance measurement** - Air quality scoring (0-100 scale)```bash
-
-- **Configurable sampling** - Adjustable oversampling and heating parameters# Install the VL53L5CX Python library
-
-- **Comprehensive logging** - Periodic environmental data reportingpip install vl53l5cx-python numpy
+- **Consecutive detection logic** - Prevents false triggers from sensor noise## ✨ Features### Connections (Pi 5)
 
 
 
-### ⚙️ **Professional Configuration**# Or install from requirements.txt
+### 🎭 **Ultra-Smooth Display Control**Connect the VL53L5CX sensor to your Raspberry Pi:
 
-- **INI-based configuration** - Comprehensive settings for all devices and behaviorspip install -r requirements.txt
+- **600-step fade animations** - Optimized for 60Hz displays (3.3ms per step)
 
-- **Inline comment support** - Clean configuration parsing with comment handling```
+- **Quintic ease-in-out curves** - Imperceptible transitions with professional smoothness### 🎯 **Precision Proximity Detection**
+
+- **Frame-rate synchronized** - Aligned to display refresh cycles for perfect motion
+
+- **Task management** - Prevents overlapping fades with proper cancellation- **VL53L5CX 8x8 ToF Sensor** - 64-zone time-of-flight detection with millimeter precision```
+
+
+
+### 🌞 **Adaptive Brightness**- **Configurable thresholds** - Adjustable detection distance (default: 400mm)VL53L5CX    →    Raspberry Pi
+
+- **LTR-559 Light Sensor** - Automatic brightness adjustment based on ambient light
+
+- **Configurable thresholds** - 10-500 lux range with linear interpolation- **Multi-zone filtering** - Requires multiple zones for reliable detectionVCC         →    3.3V (Pin 1) or 5V (Pin 2)
+
+- **Real-time adaptation** - Smooth transitions when lighting conditions change
+
+- **Manual override** - Can be disabled for static brightness mode- **Consecutive detection logic** - Prevents false triggers from sensor noiseGND         →    GND (Pin 6)
+
+
+
+### 🌡️ **Environmental Monitoring**SDA         →    GPIO 2 / SDA (Pin 3)
+
+- **BME690 4-in-1 Sensor** - Temperature, pressure, humidity, and air quality
+
+- **Gas resistance measurement** - Air quality scoring (0-100 scale)### 🎭 **Ultra-Smooth Display Control**SCL         →    GPIO 3 / SCL (Pin 5)
+
+- **Configurable sampling** - Adjustable oversampling and heating parameters
+
+- **Comprehensive logging** - Periodic environmental data reporting- **600-step fade animations** - Optimized for 60Hz displays (3.3ms per step)```
+
+
+
+### ⚙️ **Professional Configuration**- **Quintic ease-in-out curves** - Imperceptible transitions with professional smoothness
+
+- **INI-based configuration** - Comprehensive settings for all devices and behaviors
+
+- **Inline comment support** - Clean configuration parsing with comment handling- **Frame-rate synchronized** - Aligned to display refresh cycles for perfect motion### I2C Configuration
 
 - **Hot-reload capability** - Runtime configuration updates
 
-- **Extensive validation** - Built-in configuration checking and status reporting### 2. Test I2C Connection
+- **Extensive validation** - Built-in configuration checking and status reporting- **Task management** - Prevents overlapping fades with proper cancellationThe sensor uses I2C address `0x29`. Ensure I2C is enabled:
 
-```bash
 
-## 🔧 Hardware Requirements# Check if sensor is detected
 
-sudo i2cdetect -y 1
+## 🔧 Hardware Requirements
 
-### **Core Components**
 
-- **Raspberry Pi** (any model with I2C support)# You should see "29" in the output grid
 
-- **VL53L5CX 8x8 ToF Sensor** (I2C address: 0x29)```
+### **Core Components**### 🌞 **Adaptive Brightness**```bash
+
+- **Raspberry Pi** (any model with I2C support)
+
+- **VL53L5CX 8x8 ToF Sensor** (I2C address: 0x29)- **LTR-559 Light Sensor** - Automatic brightness adjustment based on ambient lightsudo raspi-config
 
 - **Display with brightness control** (via Linux sysfs)
 
-### 3. Run the Test Program
+- **Configurable thresholds** - 10-500 lux range with linear interpolation# Navigate to: Interface Options → I2C → Enable
 
-### **Optional Sensors**```bash
+### **Optional Sensors**
 
-- **LTR-559 Light Sensor** (I2C address: 0x23) - For adaptive brightnesspython test_vl53l5cx.py
+- **LTR-559 Light Sensor** (I2C address: 0x23) - For adaptive brightness- **Real-time adaptation** - Smooth transitions when lighting conditions change```
 
-- **BME690 Environmental Sensor** (I2C address: 0x76) - For air quality monitoring```
+- **BME690 Environmental Sensor** (I2C address: 0x76) - For air quality monitoring
 
+- **Manual override** - Can be disabled for static brightness mode
 
+### **Wiring Guide**
 
-### **Wiring Guide**## What the Test Does
+## Software Setup
 
 ```
 
-VL53L5CX ToF Sensor:The test program will:
+VL53L5CX ToF Sensor:### 🌡️ **Environmental Monitoring**
 
 ├── VCC → 3.3V
 
-├── GND → Ground1. 🔄 Initialize the VL53L5CX sensor
+├── GND → Ground- **BME690 4-in-1 Sensor** - Temperature, pressure, humidity, and air quality### 1. Install Dependencies
 
-├── SDA → GPIO 2 (I2C SDA)2. ✅ Verify the sensor is responsive
+├── SDA → GPIO 2 (I2C SDA)
 
-└── SCL → GPIO 3 (I2C SCL)3. 🚀 Configure for 8x8 ranging mode
+└── SCL → GPIO 3 (I2C SCL)- **Gas resistance measurement** - Air quality scoring (0-100 scale)```bash
 
-4. 📡 Start continuous distance measurements
 
-LTR-559 Light Sensor (Optional):5. � Display real-time 8x8 distance grid
 
-├── VCC → 3.3V6. 📈 Show min/max/average distance statistics
+LTR-559 Light Sensor (Optional):- **Configurable sampling** - Adjustable oversampling and heating parameters# Install the VL53L5CX Python library
 
-├── GND → Ground
+├── VCC → 3.3V
 
-├── SDA → GPIO 2 (I2C SDA)## Expected Output
+├── GND → Ground- **Comprehensive logging** - Periodic environmental data reportingpip install vl53l5cx-python numpy
+
+├── SDA → GPIO 2 (I2C SDA)
 
 └── SCL → GPIO 3 (I2C SCL)
 
+
+
+BME690 Environmental Sensor (Optional):### ⚙️ **Professional Configuration**# Or install from requirements.txt
+
+├── VCC → 3.3V
+
+├── GND → Ground- **INI-based configuration** - Comprehensive settings for all devices and behaviorspip install -r requirements.txt
+
+├── SDA → GPIO 2 (I2C SDA)
+
+└── SCL → GPIO 3 (I2C SCL)- **Inline comment support** - Clean configuration parsing with comment handling```
+
 ```
 
-BME690 Environmental Sensor (Optional):🎯 VL53L5CX 8x8 ToF Sensor Test
+- **Hot-reload capability** - Runtime configuration updates
 
-├── VCC → 3.3V========================================
+## 🚀 Quick Start
 
-├── GND → Ground🔄 Initializing VL53L5CX sensor...
+- **Extensive validation** - Built-in configuration checking and status reporting### 2. Test I2C Connection
 
-├── SDA → GPIO 2 (I2C SDA)✅ Sensor detected and responsive!
+### **1. System Preparation**
 
-└── SCL → GPIO 3 (I2C SCL)� Starting sensor initialization...
+```bash```bash
 
-```📡 Ranging started!
+# Enable I2C interface
+
+sudo raspi-config## 🔧 Hardware Requirements# Check if sensor is detected
+
+# Navigate to: Interface Options → I2C → Enable
+
+sudo i2cdetect -y 1
+
+# Install system dependencies
+
+sudo apt update### **Core Components**
+
+sudo apt install python3-pip python3-venv git i2c-tools
+
+```- **Raspberry Pi** (any model with I2C support)# You should see "29" in the output grid
 
 
 
-## 🚀 Quick StartPress Ctrl+C to stop...
-
-
-
-### **1. System Preparation**📊 Frame #1
+### **2. Installation**- **VL53L5CX 8x8 ToF Sensor** (I2C address: 0x29)```
 
 ```bash
 
-# Enable I2C interface8x8 Distance Grid (mm):
+# Clone the repository- **Display with brightness control** (via Linux sysfs)
 
-sudo raspi-config+--------------------------------------------------+
+git clone https://github.com/edizaziz-dev/homedashsensor.git
 
-# Navigate to: Interface Options → I2C → Enable|  1234  1245  1256  1267  1278  1289  1290  1301 |
+cd homedashsensor### 3. Run the Test Program
 
-|  1312  1323  1334  1345  1356  1367  1378  1389 |
 
-# Install system dependencies|  1400  1411  1422  1433  1444  1455  1466  1477 |
 
-sudo apt update|  1488  1499  1510  1521  1532  1543  1554  1565 |
+# Create virtual environment### **Optional Sensors**```bash
 
-sudo apt install python3-pip python3-venv git i2c-tools|  1576  1587  1598  1609  1620  1631  1642  1653 |
+python3 -m venv venv
 
-```|  1664  1675  1686  1697  1708  1719  1730  1741 |
+source venv/bin/activate- **LTR-559 Light Sensor** (I2C address: 0x23) - For adaptive brightnesspython test_vl53l5cx.py
 
-|  1752  1763  1774  1785  1796  1807  1818  1829 |
 
-### **2. Installation**|  1840  1851  1862  1873  1884  1895  1906  1917 |
 
-```bash+--------------------------------------------------+
+# Install dependencies- **BME690 Environmental Sensor** (I2C address: 0x76) - For air quality monitoring```
 
-# Clone the repository
+pip install -r requirements.txt
 
-git clone https://github.com/edizaziz-dev/homedashsensor.git📈 Stats: Min=1234mm, Max=1917mm, Avg=1575.5mm
 
-cd homedashsensor🎯 Valid readings: 64/64
+
+# Verify hardware detection
+
+python check_install.py### **Wiring Guide**## What the Test Does
 
 ```
 
-# Create virtual environment
-
-python3 -m venv venv## Sensor Specifications
-
-source venv/bin/activate
-
-- **Field of View**: 63° diagonal
-
-# Install dependencies- **Range**: 2cm to 4 meters
-
-pip install -r requirements.txt- **Resolution**: 8x8 array (64 zones)
-
-- **Update Rate**: Up to 60Hz
-
-# Verify hardware detection- **Interface**: I2C (address 0x29)
-
-python check_install.py- **Accuracy**: ±3% typical
-
 ```
-
-## Troubleshooting
 
 ### **3. Configuration**
 
-```bash### Sensor Not Detected
+```bashVL53L5CX ToF Sensor:The test program will:
 
-# Check current configuration```
+# Check current configuration status
 
-python check_config.py❌ Sensor not detected. Check connections!
+python check_config.py├── VCC → 3.3V
+
+
+
+# Edit configuration file (optional)├── GND → Ground1. 🔄 Initialize the VL53L5CX sensor
+
+nano proximity_config.ini
+
+```├── SDA → GPIO 2 (I2C SDA)2. ✅ Verify the sensor is responsive
+
+
+
+### **4. Testing Individual Components**└── SCL → GPIO 3 (I2C SCL)3. 🚀 Configure for 8x8 ranging mode
+
+```bash
+
+# Test VL53L5CX proximity sensor4. 📡 Start continuous distance measurements
+
+python test_vl53l5cx.py
+
+LTR-559 Light Sensor (Optional):5. � Display real-time 8x8 distance grid
+
+# Test LTR-559 light sensor (if connected)
+
+python test_ltr559.py├── VCC → 3.3V6. 📈 Show min/max/average distance statistics
+
+
+
+# Test BME690 environmental sensor (if connected)├── GND → Ground
+
+python test_bme690.py
+
+├── SDA → GPIO 2 (I2C SDA)## Expected Output
+
+# Test display fade performance
+
+python test_smooth_fade.py└── SCL → GPIO 3 (I2C SCL)
 
 ```
 
-# Edit configuration if needed- Verify wiring connections
+```
 
-nano proximity_config.ini- Check I2C is enabled: `sudo raspi-config`
+### **5. Run the Main System**
 
-```- Test I2C: `sudo i2cdetect -y 1`
+```bashBME690 Environmental Sensor (Optional):🎯 VL53L5CX 8x8 ToF Sensor Test
 
-- Ensure 3.3V/5V power supply
+# Run in foreground (with detailed logging)
 
-### **4. Testing**
-
-```bash### Import Error
-
-# Test individual sensors```
-
-python test_vl53l5cx.py      # ToF sensor❌ VL53L5CX library not installed!
-
-python test_ltr559.py        # Light sensor (if connected)```
-
-python test_bme690.py        # Environmental sensor (if connected)- Install library: `pip install vl53l5cx-python`
-
-- Check Python environment
-
-# Test display control
-
-python test_smooth_fade.py   # Fade performance### Permission Error
-
-- Try with sudo: `sudo python test_vl53l5cx.py`
-
-# Test complete system- Add user to i2c group: `sudo usermod -a -G i2c pi`
-
-python proximity_display_control.py
-
-```## Next Steps
+python proximity_display_control.py├── VCC → 3.3V========================================
 
 
 
-## 📋 ConfigurationOnce the test is working:
+# Run in background├── GND → Ground🔄 Initializing VL53L5CX sensor...
 
-1. Experiment with different ranging frequencies (1-60Hz)
+nohup python proximity_display_control.py > sensor.log 2>&1 &
 
-The system uses `proximity_config.ini` for comprehensive configuration:2. Try 4x4 mode for faster updates: `sensor.set_resolution(4*4)`
+```├── SDA → GPIO 2 (I2C SDA)✅ Sensor detected and responsive!
 
-3. Add motion detection algorithms
 
-### **Key Settings**4. Integrate with display/LED feedback
 
-```ini5. Build proximity detection system
+## ⚙️ Configuration Reference└── SCL → GPIO 3 (I2C SCL)� Starting sensor initialization...
 
-[Detection]
 
-threshold_mm = 400              # Detection distance (400mm = 40cm)```bash
 
-detection_zones = 4             # Minimum zones required# Add udev rule for brightness control
+The system uses `proximity_config.ini` for comprehensive configuration. Here are the key sections:```📡 Ranging started!
 
-consecutive_required = 2        # Consecutive detections neededsudo tee /etc/udev/rules.d/99-backlight.rules << EOF
 
-no_presence_required = 10       # Frames to confirm absenceSUBSYSTEM=="backlight", ACTION=="add", RUN+="/bin/chgrp video %S%p/brightness", RUN+="/bin/chmod g+w %S%p/brightness"
 
-EOF
+### **VL53L5CX Proximity Detection**
+
+```ini
+
+[VL53L5CX]## 🚀 Quick StartPress Ctrl+C to stop...
+
+i2c_address = 0x29
+
+frequency_hz = 15
+
+proximity_threshold_mm = 400
+
+min_zones_required = 3### **1. System Preparation**📊 Frame #1
+
+consecutive_detections_required = 2
+
+max_range_mm = 4000```bash
+
+```
+
+# Enable I2C interface8x8 Distance Grid (mm):
+
+### **Display Control**
+
+```inisudo raspi-config+--------------------------------------------------+
 
 [Display]
 
-fade_in_duration = 2.0          # Wake fade duration (seconds)# Add user to video group
+brightness_path = /sys/class/backlight/11-0045/brightness# Navigate to: Interface Options → I2C → Enable|  1234  1245  1256  1267  1278  1289  1290  1301 |
 
-fade_out_duration = 3.0         # Sleep fade duration (seconds)sudo usermod -a -G video $USER
+min_brightness = 20
 
-fade_steps = 600                # Fade smoothness (600 = 60Hz optimized)
+max_brightness = 255|  1312  1323  1334  1345  1356  1367  1378  1389 |
 
-fade_easing = quintic           # Motion curve (quintic/ease_in_out/linear)# Reload udev rules
+fade_duration_seconds = 2.0
 
-adaptive_brightness_enabled = truesudo udevadm control --reload-rules
+fade_steps = 600# Install system dependencies|  1400  1411  1422  1433  1444  1455  1466  1477 |
 
-min_brightness = 20             # Minimum display brightnesssudo udevadm trigger
+fade_algorithm = quintic_ease_in_out
 
-max_brightness = 255            # Maximum display brightness```
+```sudo apt update|  1488  1499  1510  1521  1532  1543  1554  1565 |
 
 
 
-[LightSensor]### 4. Configure Sensor Port
+### **LTR-559 Light Sensor**sudo apt install python3-pip python3-venv git i2c-tools|  1576  1587  1598  1609  1620  1631  1642  1653 |
 
-enabled = true                  # Enable adaptive brightness
+```ini
 
-light_threshold_low = 10.0      # Dark threshold (lux)Edit the sensor port in `main.py` if needed:
+[LightSensor]```|  1664  1675  1686  1697  1708  1719  1730  1741 |
 
-light_threshold_high = 500.0    # Bright threshold (lux)
+enabled = true
 
-``````python
+i2c_address = 0x23|  1752  1763  1774  1785  1796  1807  1818  1829 |
 
-# Update this line with your sensor's serial port
+min_lux_threshold = 10
 
-See `PROXIMITY_USAGE.md` for complete configuration reference.sensor = LD2450(port='/dev/ttyUSB0')  # or /dev/ttyAMA0 for GPIO UART
+max_lux_threshold = 500### **2. Installation**|  1840  1851  1862  1873  1884  1895  1906  1917 |
+
+update_interval_seconds = 1.0
+
+``````bash+--------------------------------------------------+
+
+
+
+### **BME690 Environmental Sensor**# Clone the repository
+
+```ini
+
+[BME690]git clone https://github.com/edizaziz-dev/homedashsensor.git📈 Stats: Min=1234mm, Max=1917mm, Avg=1575.5mm
+
+enabled = true
+
+i2c_address = 0x76cd homedashsensor🎯 Valid readings: 64/64
+
+update_interval_seconds = 10.0
+
+temperature_oversampling = 8```
+
+pressure_oversampling = 4
+
+humidity_oversampling = 2# Create virtual environment
 
 ```
 
-## 🎭 Performance & Optimization
+python3 -m venv venv## Sensor Specifications
 
-## 🚀 Usage
+## 🔍 Advanced Usage
 
-### **60Hz Display Optimization**
+source venv/bin/activate
 
-- **600 fade steps** provide 3.3ms transitions (imperceptible on 60Hz displays)### Basic Usage
+### **Performance Optimization**
 
-- **Quintic easing** delivers professional motion curves
+The system is optimized for 60Hz displays with 600-step fade animations. Key parameters:- **Field of View**: 63° diagonal
 
-- **Frame synchronization** eliminates visual artifacts```bash
+- **Frame timing**: 3.33ms per step (aligned to 60Hz refresh)
+
+- **Fade algorithm**: Quintic ease-in-out for imperceptible motion# Install dependencies- **Range**: 2cm to 4 meters
+
+- **Task management**: Prevents overlapping fades with proper cancellation
+
+pip install -r requirements.txt- **Resolution**: 8x8 array (64 zones)
+
+### **Debugging and Monitoring**
+
+```bash- **Update Rate**: Up to 60Hz
+
+# Monitor system logs in real-time
+
+tail -f sensor.log# Verify hardware detection- **Interface**: I2C (address 0x29)
+
+
+
+# Check sensor detectionpython check_install.py- **Accuracy**: ±3% typical
+
+sudo i2cdetect -y 1
+
+```
+
+# Verify brightness control permissions
+
+ls -la /sys/class/backlight/*/brightness## Troubleshooting
+
+
+
+# Test fade performance### **3. Configuration**
+
+python test_fade_performance.py
+
+``````bash### Sensor Not Detected
+
+
+
+### **Service Installation**# Check current configuration```
+
+```bash
+
+# Create systemd servicepython check_config.py❌ Sensor not detected. Check connections!
+
+sudo nano /etc/systemd/system/homedashsensor.service
+
+```
+
+# Service content:
+
+[Unit]# Edit configuration if needed- Verify wiring connections
+
+Description=HomeDashSensor Display Control
+
+After=multi-user.targetnano proximity_config.ini- Check I2C is enabled: `sudo raspi-config`
+
+
+
+[Service]```- Test I2C: `sudo i2cdetect -y 1`
+
+Type=simple
+
+User=pi- Ensure 3.3V/5V power supply
+
+WorkingDirectory=/home/pi/apps/homedashsensor
+
+Environment=PATH=/home/pi/apps/homedashsensor/venv/bin### **4. Testing**
+
+ExecStart=/home/pi/apps/homedashsensor/venv/bin/python proximity_display_control.py
+
+Restart=always```bash### Import Error
+
+
+
+[Install]# Test individual sensors```
+
+WantedBy=multi-user.target
+
+python test_vl53l5cx.py      # ToF sensor❌ VL53L5CX library not installed!
+
+# Enable and start service
+
+sudo systemctl enable homedashsensor.servicepython test_ltr559.py        # Light sensor (if connected)```
+
+sudo systemctl start homedashsensor.service
+
+```python test_bme690.py        # Environmental sensor (if connected)- Install library: `pip install vl53l5cx-python`
+
+
+
+## 🛠️ Troubleshooting- Check Python environment
+
+
+
+### **Common Issues**# Test display control
+
+
+
+**Sensor not detected:**python test_smooth_fade.py   # Fade performance### Permission Error
+
+```bash
+
+# Check I2C bus- Try with sudo: `sudo python test_vl53l5cx.py`
+
+sudo i2cdetect -y 1
+
+# Should show devices at 0x29 (VL53L5CX), 0x23 (LTR-559), 0x76 (BME690)# Test complete system- Add user to i2c group: `sudo usermod -a -G i2c pi`
+
+
+
+# Check I2C permissionspython proximity_display_control.py
+
+sudo usermod -a -G i2c $USER
+
+# Logout and login again```## Next Steps
+
+```
+
+
+
+**Brightness control not working:**
+
+```bash## 📋 ConfigurationOnce the test is working:
+
+# Check brightness file exists
+
+ls -la /sys/class/backlight/*/brightness1. Experiment with different ranging frequencies (1-60Hz)
+
+
+
+# Test write permissionsThe system uses `proximity_config.ini` for comprehensive configuration:2. Try 4x4 mode for faster updates: `sensor.set_resolution(4*4)`
+
+echo 128 | sudo tee /sys/class/backlight/*/brightness
+
+3. Add motion detection algorithms
+
+# Add user to video group
+
+sudo usermod -a -G video $USER### **Key Settings**4. Integrate with display/LED feedback
+
+```
+
+```ini5. Build proximity detection system
+
+**Fade appears stuttery:**
+
+- Increase `fade_steps` in configuration (try 800-1000 for very high refresh displays)[Detection]
+
+- Verify system isn't under high CPU load
+
+- Check if other processes are controlling brightnessthreshold_mm = 400              # Detection distance (400mm = 40cm)```bash
+
+
+
+### **Performance Monitoring**detection_zones = 4             # Minimum zones required# Add udev rule for brightness control
+
+```bash
+
+# Check system resource usageconsecutive_required = 2        # Consecutive detections neededsudo tee /etc/udev/rules.d/99-backlight.rules << EOF
+
+htop
+
+no_presence_required = 10       # Frames to confirm absenceSUBSYSTEM=="backlight", ACTION=="add", RUN+="/bin/chgrp video %S%p/brightness", RUN+="/bin/chmod g+w %S%p/brightness"
+
+# Monitor I2C traffic
+
+sudo apt install i2c-toolsEOF
+
+watch -n 1 'sudo i2cdetect -y 1'
+
+[Display]
+
+# Test sensor update rates
+
+python debug_vl53l5cx.pyfade_in_duration = 2.0          # Wake fade duration (seconds)# Add user to video group
+
+```
+
+fade_out_duration = 3.0         # Sleep fade duration (seconds)sudo usermod -a -G video $USER
+
+## 📋 Hardware Specifications
+
+fade_steps = 600                # Fade smoothness (600 = 60Hz optimized)
+
+### **VL53L5CX ToF Sensor**
+
+- **Resolution**: 8x8 array (64 zones)fade_easing = quintic           # Motion curve (quintic/ease_in_out/linear)# Reload udev rules
+
+- **Range**: 2cm to 4 meters
+
+- **Field of View**: 63° diagonaladaptive_brightness_enabled = truesudo udevadm control --reload-rules
+
+- **Update Rate**: Up to 60Hz
+
+- **Interface**: I2C (address 0x29)min_brightness = 20             # Minimum display brightnesssudo udevadm trigger
+
+- **Accuracy**: ±3% typical
+
+max_brightness = 255            # Maximum display brightness```
+
+### **LTR-559 Light Sensor**
+
+- **Light Range**: 0.01 to 64,000 lux
+
+- **Proximity Range**: 0 to 100mm
+
+- **Interface**: I2C (address 0x23)[LightSensor]### 4. Configure Sensor Port
+
+- **Resolution**: 16-bit light, 11-bit proximity
+
+enabled = true                  # Enable adaptive brightness
+
+### **BME690 Environmental Sensor**
+
+- **Temperature**: -40°C to +85°C (±1°C accuracy)light_threshold_low = 10.0      # Dark threshold (lux)Edit the sensor port in `main.py` if needed:
+
+- **Pressure**: 300-1100 hPa (±0.12 hPa accuracy)
+
+- **Humidity**: 0-100% RH (±3% accuracy)light_threshold_high = 500.0    # Bright threshold (lux)
+
+- **Gas Sensor**: VOC detection for air quality
+
+- **Interface**: I2C (address 0x76)``````python
+
+
+
+## 📜 License# Update this line with your sensor's serial port
+
+
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.See `PROXIMITY_USAGE.md` for complete configuration reference.sensor = LD2450(port='/dev/ttyUSB0')  # or /dev/ttyAMA0 for GPIO UART
+
+
+
+## 🤝 Contributing```
+
+
+
+1. Fork the repository## 🎭 Performance & Optimization
+
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+
+3. Commit your changes (`git commit -m 'Add amazing feature'`)## 🚀 Usage
+
+4. Push to the branch (`git push origin feature/amazing-feature`)
+
+5. Open a Pull Request### **60Hz Display Optimization**
+
+
+
+## 🙏 Acknowledgments- **600 fade steps** provide 3.3ms transitions (imperceptible on 60Hz displays)### Basic Usage
+
+
+
+- VL53L5CX library contributors for ToF sensor integration- **Quintic easing** delivers professional motion curves
+
+- CircuitPython community for sensor driver inspiration
+
+- Raspberry Pi Foundation for excellent hardware documentation- **Frame synchronization** eliminates visual artifacts```bash
 
 - **Memory efficiency** prevents performance degradation over timecd homedashsensor
 
