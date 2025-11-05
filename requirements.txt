@@ -1,0 +1,15 @@
+# HomeDashSensor - Optimized Python implementation
+# Official Pimoroni sensor libraries
+vl53l5cx>=1.0.0           # VL53L5CX ToF sensor (official Pimoroni)
+ltr559>=1.0.0             # LTR-559 light sensor (official Pimoroni)
+# Prefer Pimoroni's BME690 library (pin to tested commit/sha for reproducibility).
+# Use the GitHub source if a PyPI release isn't available for your platform.
+# You can replace the git URL with a PyPI release (e.g. bme690==1.0.0) when available.
+bme690 @ git+https://github.com/pimoroni/bme690-python@v1.0.0
+
+# Dependencies
+numpy>=1.20.0
+smbus2>=0.4.0
+
+# Standard libraries (should be available)
+# asyncio, logging, signal, pathlib, configparser, dataclasses, abc, glob
