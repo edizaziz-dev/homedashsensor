@@ -11,5 +11,8 @@ bme690 @ git+https://github.com/pimoroni/bme690-python@v1.0.0
 numpy>=1.20.0
 smbus2>=0.4.0
 
+# MQTT for Home Assistant integration
+paho-mqtt>=1.6.0
+
 # Standard libraries (should be available)
 # asyncio, logging, signal, pathlib, configparser, dataclasses, abc, glob

@@ -80,6 +80,19 @@ class LightSensorConfig:
     measurement_rate: int = 500
 
 
+@dataclass
+class MQTTConfig:
+    """MQTT integration configuration."""
+    enabled: bool = True
+    broker_host: str = "localhost"
+    broker_port: int = 1883
+    username: str = ""
+    password: str = ""
+    topic_prefix: str = "homedashsensor"
+    device_id: str = "homedash_01"
+    client_id: str = "homedashsensor"
+
+
 class ConfigManager:
     """Manages configuration loading and validation."""
     
@@ -184,4 +197,22 @@ class ConfigManager:
             filter_size=section.getint("filter_size", 3),
             location=section.get("location", "indoor"),
             temperature_unit=section.get("temperature_unit", "Celsius")
+        )
+    
+    def get_mqtt_config(self) -> MQTTConfig:
+        """Get MQTT integration configuration."""
+        if "MQTT" not in self._config.sections():
+            # Return default configuration if MQTT section doesn't exist
+            return MQTTConfig(enabled=False)
+        
+        section = self._config["MQTT"]
+        return MQTTConfig(
+            enabled=section.getboolean("enabled", False),
+            broker_host=section.get("broker_host", "localhost"),
+            broker_port=section.getint("broker_port", 1883),
+            username=section.get("username", ""),
+            password=section.get("password", ""),
+            topic_prefix=section.get("topic_prefix", "homedashsensor"),
+            device_id=section.get("device_id", "homedash_01"),
+            client_id=section.get("client_id", "homedashsensor")
         )
