@@ -1,0 +1,27 @@
+[Unit]
+Description=HomeDashSensor - Proximity Display Controller
+Documentation=https://github.com/edizaziz-dev/homedashsensor
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/apps/homedashsensor
+Environment=PATH=/home/pi/apps/homedashsensor/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=VIRTUAL_ENV=/home/pi/apps/homedashsensor/venv
+ExecStart=/bin/bash -c 'cd /home/pi/apps/homedashsensor && source venv/bin/activate && python main.py'
+ExecStop=/bin/kill -SIGINT $MAINPID
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=homedashsensor
+
+# Resource limits
+LimitNOFILE=65536
+MemoryMax=512M
+
+[Install]
+WantedBy=multi-user.target

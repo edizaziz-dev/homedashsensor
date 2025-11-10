@@ -55,6 +55,48 @@ python main.py
 
 The program prints status logs; press Ctrl-C to stop. Logs include VL53 firmware upload, sensor initialization, and regular environment readings.
 
+## Automatic Startup Service
+
+HomeDashSensor can be configured to start automatically on boot using systemd.
+
+### Service Installation
+
+```bash
+# Navigate to project directory
+cd /home/pi/apps/homedashsensor
+
+# Install the service for automatic startup
+./service-control.sh install
+
+# Start the service immediately
+./service-control.sh start
+```
+
+### Service Management
+
+The `service-control.sh` script provides easy service management:
+
+```bash
+# Service control commands
+./service-control.sh start       # Start the service
+./service-control.sh stop        # Stop the service
+./service-control.sh restart     # Restart the service
+./service-control.sh status      # Show service status
+./service-control.sh logs        # View recent logs
+./service-control.sh logs-live   # Watch live logs (Ctrl+C to exit)
+./service-control.sh uninstall   # Remove service from system
+```
+
+### Service Benefits
+
+- **🔄 Auto-start** - Starts automatically when Pi boots
+- **🔧 Easy management** - Simple start/stop commands
+- **📋 System logging** - All output goes to systemd journal
+- **🛡️ Process monitoring** - Automatic restart on crashes
+- **👤 User permissions** - Runs as pi user with proper permissions
+
+Once installed, HomeDashSensor will start automatically every time your Raspberry Pi boots, ensuring continuous monitoring without manual intervention.
+
 ## Configuration
 - `proximity_config.ini` contains proximity tuning, thresholds and device-specific settings.
 - `config.py` reads configuration and provides typed dataclasses for use by sensor modules.
